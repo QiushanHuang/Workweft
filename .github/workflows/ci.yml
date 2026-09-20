@@ -1,0 +1,20 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: cargo build --locked -p hct-core
+      - run: cargo test --locked -p hct-core
+      - run: python3 -m unittest discover -s apps/workbench -p 'test_*.py'
+      - run: node --check apps/workbench/static/app.js && node --check apps/workbench/static/review-panel.js

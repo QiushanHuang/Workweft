@@ -1,0 +1,12 @@
+[package]
+name = "harness-control-desktop"
+version = "0.3.0"
+edition = "2021"
+
+[workspace]
+
+[build-dependencies]
+tauri-build = "=2.6.3"
+
+[dependencies]
+tauri = "=2.11.5"

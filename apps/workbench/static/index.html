@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harness · 项目工作台</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/"><img src="/logo.png" width="36" height="36" alt="" /><span>Harness</span></a>
+      <div class="workspace-label">个人工作空间 <span>LOCAL</span></div>
+      <nav aria-label="工作区导航">
+        <button class="nav active" data-view="board">◫ 项目工作台</button
+        ><button class="nav" data-view="next">→ 下一步</button
+        ><button class="nav" data-view="canvas">⌘ 依赖图</button
+        ><button class="nav" data-view="runs">↗ 执行记录</button
+        ><button class="nav" data-view="activity">◷ 活动记录</button
+        ><button class="nav" data-view="lookup">⌕ 全局查找</button>
+      </nav>
+      <div class="section-label">
+        项目 <button id="new-project" aria-label="创建项目">＋</button>
+      </div>
+      <div id="projects"></div>
+      <div class="sidebar-footer">
+        <span class="dot"></span> 本地 SQLite 持久化<br /><small
+          >项目数据保存在你的设备上</small
+        >
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <span class="eyebrow">HARNESS CONTROL TERMINAL</span>
+          <h1 id="heading">项目工作台</h1>
+        </div>
+        <div class="header-actions">
+          <a
+            href="/api/export"
+            download="harness-projects.md"
+            class="button secondary"
+            >导出 Markdown</a
+          ><a
+            href="/api/export.json"
+            download="harness-projects.json"
+            class="button secondary"
+            >导出 JSON</a
+          ><a
+            href="/api/assets/export"
+            download="file-references.md"
+            class="button secondary"
+            >导出文件引用</a
+          ><button id="refresh" class="secondary">刷新</button
+          ><button id="new-task">＋ 新建任务</button>
+        </div>
+      </header>
+      <p id="description" class="description">
+        把目标拆成清晰的下一步，让执行过程有据可查。
+      </p>
+      <div id="error" role="alert" hidden></div>
+      <div class="metrics" id="metrics"></div>
+      <div class="toolbar">
+        <div id="view-label">任务看板</div>
+        <label class="search"
+          ><span>⌕</span
+          ><input
+            id="search"
+            type="search"
+            aria-label="搜索任务"
+            placeholder="搜索任务标题与描述…" /></label
+        ><span id="revision"></span>
+      </div>
+      <section id="content" aria-live="polite">
+        <div class="empty">正在载入工作空间…</div>
+      </section>
+      <footer>
+        人工验收仅表示你的管理决定。远程执行结果与独立验证在执行记录中单独展示。
+      </footer>
+    </main>
+    <dialog id="project-dialog">
+      <form id="project-form">
+        <div class="dialog-heading">
+          <h2>创建项目</h2>
+          <button type="button" class="close secondary" aria-label="关闭">
+            ×
+          </button>
+        </div>
+        <label
+          >项目名称<input
+            name="title"
+            required
+            maxlength="160"
+            placeholder="例如：论文资料整理" /></label
+        ><label
+          >目标与背景<textarea
+            name="description"
+            maxlength="10000"
+            rows="4"
+            placeholder="这个项目最终要交付什么？"
+          ></textarea></label
+        ><button type="submit">创建项目</button>
+      </form>
+    </dialog>
+    <dialog id="task-dialog">
+      <form id="task-form">
+        <div class="dialog-heading">
+          <h2 id="task-dialog-title">新建任务</h2>
+          <button type="button" class="close secondary" aria-label="关闭">
+            ×
+          </button>
+        </div>
+        <label>任务标题<input name="title" required maxlength="160" /></label
+        ><label
+          >描述 / 交付说明<textarea
+            name="description"
+            rows="5"
+            maxlength="10000"
+            placeholder="交付物、操作步骤和你会如何确认完成…"
+          ></textarea>
+        </label>
+        <div id="task-meta"></div>
+        <label
+          >验收条件（每行一条）<textarea
+            name="criteria"
+            rows="3"
+            placeholder="例如：说明步骤完整；不改变原文件"
+          ></textarea>
+        </label>
+        <div class="form-actions"><button type="submit">保存任务</button></div>
+      </form>
+      <div id="task-controls"></div>
+    </dialog>
+    <script type="module" src="/app.js"></script>
+    <dialog id="import-dialog">
+      <div class="dialog-heading">
+        <h2>导入预览</h2>
+        <button id="close-import" class="secondary">关闭</button>
+      </div>
+      <p>
+        支持 Harness 导出 JSON 与 MindDesk 原生
+        manifest/package。只创建新副本，不覆盖已有项目，不运行文件中的命令。
+      </p>
+      <label
+        >选择 JSON 文件<input
+          id="import-file"
+          type="file"
+          accept=".json,application/json"
+      /></label>
+      <pre id="import-preview"></pre>
+      <p id="import-error" role="alert"></p>
+      <button id="apply-import" disabled>确认导入新副本</button>
+    </dialog>
+  </body>
+</html>

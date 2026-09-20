@@ -1,0 +1,1 @@
+{"schema":"HCTWorkspaceExportV1","snapshot":{"schema_version":3,"revision":0,"projects":[{"id":"fixture-project","title":"导入验证 · 可归档","description":"桌面端导入流程测试，无真实业务数据","archived":false}],"tasks":[{"id":"fixture-task","project_id":"fixture-project","title":"检查导入副本","description":"导入应分配新 ID 并保持源项目不变","status":"todo","dependencies":[]}],"assets":[]}}

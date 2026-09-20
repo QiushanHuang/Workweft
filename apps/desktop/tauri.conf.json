@@ -1,0 +1,9 @@
+{
+  "$schema":"https://schema.tauri.app/config/2",
+  "productName":"Harness Control Terminal",
+  "version":"0.3.0",
+  "identifier":"local.harness.control",
+  "build":{"frontendDist":"../workbench/static"},
+  "app":{"windows":[],"security":{"csp":null}},
+  "bundle":{"active":false}
+}
