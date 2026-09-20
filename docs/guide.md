@@ -24,7 +24,7 @@ For a Python installed somewhere else, launch the executable with an explicit
 `HCT_PYTHON` environment variable, for example:
 
 ```sh
-HCT_PYTHON=/opt/homebrew/bin/python3 "/Applications/Harness Control Terminal.app/Contents/MacOS/harness-control-desktop"
+HCT_PYTHON=/opt/homebrew/bin/python3 "/Applications/Harness Control Terminal 0.3.0.app/Contents/MacOS/harness-control-desktop"
 ```
 
 ## Your first document task

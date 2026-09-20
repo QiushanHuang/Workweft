@@ -198,7 +198,7 @@ cargo build --locked -p hct-core
 python3 apps/workbench/server.py
 ```
 
-随后打开 **http://127.0.0.1:4178/**。构建需要 Rust；浏览器服务使用 Python 标准库。
+随后打开 [本地工作台](http://127.0.0.1:4178/)。构建需要 Rust；浏览器服务使用 Python 标准库。
 
 ### 数据与备份
 
