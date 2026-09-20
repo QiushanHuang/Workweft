@@ -87,7 +87,7 @@ Apply the selected change with your usual editor or Git workflow.
 Keep your editor, terminal and file manager. Workweft organizes the work around
 them. Version 0.4.0 is a single-user macOS workbench with a Simplified Chinese
 interface. Document generation is available now; code execution is scoped to
-registered workbench Python files. MindDesk integration uses explicit metadata
+registered workbench Python files. [MindDesk](https://github.com/QiushanHuang/MindDesk) integration uses explicit metadata
 file exchange, not live synchronization.
 
 ## A quick tour
@@ -104,7 +104,7 @@ review are useful on their own; you do not need to launch an agent for every tas
 | Keep a decision | Check the criteria and record **采用** or **拒绝** with a reason |
 | Mark the task accepted | Use **确认人工验收** after reviewing the current result |
 | Find an earlier decision | Search **全局查找**, then open its task |
-| Share project metadata | Export Markdown, JSON or MindDesk-compatible references |
+| Share project metadata | Export Markdown, JSON or [MindDesk](https://github.com/QiushanHuang/MindDesk)-compatible references |
 
 "Adopt" records your choice. Applying a code patch remains a separate step in
 your editor or Git workflow. Document acceptance is your judgement; code
@@ -296,7 +296,7 @@ AI 可以很快再给你一个答案，但哪个答案符合现在的要求、�
 
 你仍然使用熟悉的编辑器、终端和文件管理器，Workweft 负责把这些工作与项目对应起来。
 0.4.0 是简体中文界面的单用户 macOS 工作台，已支持文档生成；代码执行目前限定
-已登记的工作台 Python 文件。与 MindDesk 通过主动导入、导出交换元数据，不做后台实时同步。
+已登记的工作台 Python 文件。与 [MindDesk](https://github.com/QiushanHuang/MindDesk) 通过主动导入、导出交换元数据，不做后台实时同步。
 
 ### 快速上手
 
