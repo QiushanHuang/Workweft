@@ -30,7 +30,7 @@ node --check apps/workbench/static/review-panel.js
 ```
 
 Python tests use temporary data and fake executors; they do not send model requests.
-The retired school's live-dispatch tests and private fixtures are not distributed.
+Retired remote-dispatch tests and private fixtures are not distributed.
 The replacement history adapter is tested for read-only retention and no replay.
 
 ## Build a macOS package
@@ -66,6 +66,6 @@ when it changes the first-use workflow.
 ## 中文开发说明
 
 核心规则在 Rust 中，执行器、文件引用和界面保持独立。运行上方测试命令后提交范围
-清晰的 PR，附操作步骤和相关验证结果。测试不应调用真实模型或连接学校服务器。
+清晰的 PR，附操作步骤和相关验证结果。测试不应调用真实模型或连接外部执行器。
 发布包只包含程序代码与图标，不包含个人数据、认证信息或私有运行记录。
 macOS 打包命令见上方；当前为本地签名，Developer ID 和 Apple 公证需单独办理。

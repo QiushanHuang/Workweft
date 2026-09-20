@@ -122,7 +122,7 @@ Do not test restoration over live data. Full restore rehearsal is still planned.
 | Authentication or quota error | Check your Codex CLI login/account. Preserve the failed run before retrying. |
 | Result won't enter acceptance | Check task version, criteria, result availability, dependency versions and code verification. |
 | Browser port is busy | Start with `HCT_PORT=4180 python3 apps/workbench/server.py`; open that loopback port. |
-| Old school run cannot refresh | It is retained local history; this release does not reconnect to that executor. |
+| An archived remote run cannot refresh | It is retained local history; this release does not reconnect to retired executors. |
 
 Closing the app stops its UI service. A detached model worker can continue, so
 request cancellation before quitting if you want it to stop. Cancellation during
