@@ -18,7 +18,7 @@ class ExecutionService:
 
     def submit(self, task, revision, profile="codex_document", execution=None):
         if profile not in ("codex_document", "codex_code"):
-            raise ValueError("学校执行器已停用，请选择本地 Codex")
+            raise ValueError("旧执行器已停用，请选择本地 Codex")
         if any(
             job["task_id"] == task["id"]
             and job["phase"]
@@ -31,7 +31,7 @@ class ExecutionService:
             for job in self.legacy.list()
         ):
             raise ValueError(
-                "该任务的学校运行结果尚不确定，不能直接作为本地重试；请先记录处置决定"
+                "该任务的历史运行结果尚不确定，不能直接作为本地重试；请先记录处置决定"
             )
         return self.local.submit(
             task, revision, mode=profile.removeprefix("codex_"), execution=execution
@@ -47,7 +47,7 @@ class ExecutionService:
             job,
             backend="harness-remote",
             backend_available=False,
-            error="学校服务不可用；显示最后保存的历史记录",
+            error="旧执行器已停用；显示最后保存的历史记录",
         )
 
     def cancel(self, identifier):

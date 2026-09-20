@@ -652,7 +652,7 @@ async function renderRuns(content) {
     element(
       "p",
       "view-note",
-      "新任务使用本机 Codex CLI 与当前账户额度；模型推理仍需网络。学校执行器已停用，历史结果保留。代码在独立副本内修改，不自动覆盖原源码。",
+      "新任务使用本机 Codex CLI 与当前账户额度；模型推理仍需网络。旧执行器已停用，历史结果保留。代码在独立副本内修改，不自动覆盖原源码。",
     ),
   );
   try {
@@ -751,7 +751,7 @@ async function renderRuns(content) {
     submit.type = "submit";
     submit.disabled = !selectedTasks().length;
     form.append(
-      element("h3", "", "关联学校历史记录（不联网）"),
+      element("h3", "", "关联历史执行记录（不联网）"),
       select,
       input,
       submit,
@@ -790,7 +790,7 @@ async function renderRuns(content) {
           element(
             "p",
             "",
-            `${run.backend === "codex-local" ? "本地 Codex" : "学校 Harness · 历史只读"} · ${run.phase}`,
+            `${run.backend === "codex-local" ? "本地 Codex" : "历史执行器 · 只读"} · ${run.phase}`,
           ),
           element("p", "", run.id),
         );
@@ -855,7 +855,7 @@ async function renderRuns(content) {
             );
             const link = element("a");
             link.href = url;
-            link.download = `harness-${run.id}.${result.kind === "code" ? "patch" : "md"}`;
+            link.download = `workweft-${run.id}.${result.kind === "code" ? "patch" : "md"}`;
             link.click();
             setTimeout(() => URL.revokeObjectURL(url), 1000);
           };
@@ -1115,7 +1115,7 @@ const importButton = element("button", "secondary", "导入 JSON / MindDesk");
 importButton.onclick = () => $("#import-dialog").showModal();
 const minddesk = element("a", "button secondary", "导出 MindDesk");
 minddesk.href = "/api/minddesk/export";
-minddesk.download = "harness-minddesk.json";
+minddesk.download = "workweft-minddesk.json";
 projectTools.append(archive, archived, importButton, minddesk);
 $("#description").after(projectTools);
 $("#close-import").onclick = () => $("#import-dialog").close();

@@ -12,7 +12,7 @@ def to_minddesk(snapshot):
     tasks={t['id']:t for t in snapshot['tasks']}
     for p in projects.values():
         manifest['workspaces'].append({'id':p['id'],'title':p['title'],'details':p['description'],'createdAt':now,'updatedAt':now,'isPinned':False,'sortIndex':0})
-        manifest['canvases'].append({'id':'canvas-'+p['id'],'workspaceId':p['id'],'title':'Harness tasks','viewportX':0,'viewportY':0,'zoom':1})
+        manifest['canvases'].append({'id':'canvas-'+p['id'],'workspaceId':p['id'],'title':'Workweft tasks','viewportX':0,'viewportY':0,'zoom':1})
     def node(identifier,project,title,body,index):
         return {'id':identifier,'canvasId':'canvas-'+project,'title':title,'body':body,'nodeType':'note',
                 'x':(index%4)*320,'y':(index//4)*220,'width':280,'height':160}
@@ -25,7 +25,7 @@ def to_minddesk(snapshot):
         p=tasks[a['task_id']]['project_id']
         manifest['nodes'].append(node('asset-node-'+a['id'],p,a['title'],json.dumps({'schema':'hct.asset.v1','asset':a},ensure_ascii=False),i+len(tasks)))
         if a['kind']=='local_file':
-            manifest['resources'].append({'id':a['id'],'workspaceId':p,'title':a['title'],'targetType':'file','displayPath':a['target'],'lastResolvedPath':a['target'],'note':a['description'],'tags':['Harness'],'scope':'workspace','status':'unavailable'})
+            manifest['resources'].append({'id':a['id'],'workspaceId':p,'title':a['title'],'targetType':'file','displayPath':a['target'],'lastResolvedPath':a['target'],'note':a['description'],'tags':['Workweft'],'scope':'workspace','status':'unavailable'})
     return manifest
 
 

@@ -140,7 +140,7 @@ class Handler(BaseHTTPRequestHandler):
                         "text/markdown; charset=utf-8",
                     )
                 lines = [
-                    "# Harness Control Terminal",
+                    "# Workweft",
                     f"\nRevision: {snapshot['revision']}\n",
                 ]
                 for project in snapshot["projects"]:
@@ -391,7 +391,7 @@ class Handler(BaseHTTPRequestHandler):
                 else:
                     if set(request) != {"run_id"}:
                         return self.send(400, {"error": "请求格式无效"})
-                    return self.send(409, {"error": "学校服务已停用；历史记录仍可查看"})
+                    return self.send(409, {"error": "旧执行器已停用；历史记录仍可查看"})
                 return self.send(200, {"linked": self.server.runs.list()})
             if not isinstance(request, dict) or set(request) != {
                 "expected_revision",
@@ -465,7 +465,7 @@ def main():
     server.token = secrets.token_urlsafe(32)
     server.imports = {}
     server.import_lock = threading.Lock()
-    print(f"Harness workbench: http://127.0.0.1:{server.server_port}", flush=True)
+    print(f"Workweft: http://127.0.0.1:{server.server_port}", flush=True)
     server.serve_forever()
 
 

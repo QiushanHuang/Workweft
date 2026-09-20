@@ -9,6 +9,7 @@
 # Build and package output
 node_modules/
 target/
+target-workweft/
 dist/
 coverage/
 .playwright-cli/

@@ -39,15 +39,15 @@ On Apple Silicon with Apple's command-line developer tools:
 
 ```sh
 cargo build --release --locked -p hct-core
-cargo build --release --locked --manifest-path apps/desktop/Cargo.toml
-python3 apps/desktop/package.py --name 'Harness Control Terminal.app'
-codesign --verify --deep --strict 'dist/Harness Control Terminal.app'
-ditto -c -k --sequesterRsrc --keepParent 'dist/Harness Control Terminal.app' 'dist/Harness-Control-Terminal-v0.3.0-macos-arm64.zip'
+cargo build --release --locked --manifest-path apps/desktop/Cargo.toml --target-dir apps/desktop/target-workweft
+python3 apps/desktop/package.py --name 'Workweft.app'
+codesign --verify --deep --strict 'dist/Workweft.app'
+ditto -c -k --sequesterRsrc --keepParent 'dist/Workweft.app' 'dist/Workweft-v0.4.0-macos-arm64.zip'
 ```
 
 The packager refuses to overwrite an existing bundle. Choose a new output name
 for another build. It packages runtime code, not application data or cloud
-credentials. The icon source is `docs/brand/harness-logo.png`; PNG and ICNS variants
+credentials. The icon source is `docs/brand/workweft-logo.png`; PNG and ICNS variants
 are included under `apps/desktop/icons/`. The original development-only icon
 generator is not used by the public build.
 

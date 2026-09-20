@@ -1,30 +1,31 @@
 <a id="english"></a>
 
-# Harness Control Terminal
+# Workweft
 
-<img src="docs/brand/harness-logo.png" width="160" alt="Harness: a connected path with a human decision point">
+<img src="docs/brand/workweft-logo.png" width="160" alt="Workweft: a connected path with a human decision point">
 
 [![English](https://img.shields.io/badge/Language-English-24292f)](#english)
 [![简体中文](https://img.shields.io/badge/语言-简体中文-1677ff)](#中文)
 
-[![Release](https://img.shields.io/github/v/release/QiushanHuang/Harness-Control-Terminal)](https://github.com/QiushanHuang/Harness-Control-Terminal/releases)
-[![macOS](https://img.shields.io/badge/macOS-Apple_Silicon-111827)](https://github.com/QiushanHuang/Harness-Control-Terminal/releases)
+[![Release](https://img.shields.io/github/v/release/QiushanHuang/Workweft)](https://github.com/QiushanHuang/Workweft/releases)
+[![macOS](https://img.shields.io/badge/macOS-Apple_Silicon-111827)](https://github.com/QiushanHuang/Workweft/releases)
 [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**AI moves the task forward. Keep the whole project in view.**
+**Break a project into tasks. Let AI do the work. Review the results and track progress.**
 
-Harness Control Terminal is a local-first project workbench for people working
-with AI. Plan the work, follow its dependencies, run a task and review the result
-without losing the connection between what you asked for and what you decided to use.
+Workweft is an AI project management app that runs on your computer. Break down
+a project, arrange task dependencies, ask AI to generate documents, then inspect
+the output beside the task and record what you decide to use. Return later and
+see what is finished, what needs attention and what to do next.
 
 It is built for work that takes more than one conversation. A brief changes, a
 draft needs another pass, or you return to a project after a week away. Your next
 step should start from the project's current state, not a search through old chats.
 
-## Why choose Harness?
+## Why choose Workweft?
 
 Generating another answer is easy. Keeping track of which answer belongs to the
-current plan takes more work. Harness gives that work a home: tasks, execution
+current plan takes more work. Workweft gives that work a home: tasks, execution
 records, saved outputs and your decisions stay linked.
 
 **The unit of progress is a task with a usable result, not a completed chat.**
@@ -32,7 +33,7 @@ You can see what is ready to start, what came back, what you checked and what
 still needs attention. A result can be saved without being accepted; an older
 version can remain useful without standing in for today's requirements.
 
-| Friction in an everyday workflow | What Harness changes | What you gain |
+| Friction in an everyday workflow | What Workweft changes | What you gain |
 | --- | --- | --- |
 | Requirements disappear into long chats. | Keep explicit criteria beside each task. | A clear definition of done before starting. |
 | A task board shows status, while output and test results live elsewhere. | Link execution records and frozen results to the task. | Inspect what actually came back without reconstructing the run. |
@@ -43,7 +44,7 @@ version can remain useful without standing in for today's requirements.
 ### A project workspace, alongside your agent harness
 
 An **agent harness** is the execution layer around a model: it manages the loop
-that calls the model and routes tool calls. Harness Control Terminal works at
+that calls the model and routes tool calls. Workweft works at
 the project level, where a person decides what to do, which result to use and
 whether the work is ready. This distinction follows the execution-layer meaning
 of harness described in [Anthropic's architecture notes](https://www.anthropic.com/engineering/managed-agents).
@@ -83,8 +84,8 @@ Apply the selected change with your usual editor or Git workflow.
 - **Decisions you can revisit:** search adoption/rejection reasons and the original checklist.
 - **Readable project records:** Markdown for reading and JSON for structured exchange.
 
-Keep your editor, terminal and file manager. Harness organizes the work around
-them. Version 0.3.0 is a single-user macOS workbench with a Simplified Chinese
+Keep your editor, terminal and file manager. Workweft organizes the work around
+them. Version 0.4.0 is a single-user macOS workbench with a Simplified Chinese
 interface. Document generation is available now; code execution is scoped to
 registered workbench Python files. MindDesk integration uses explicit metadata
 file exchange, not live synchronization.
@@ -157,14 +158,14 @@ Review ties that bundle back to the task version and your checklist.
 | Codex CLI | The current executor for model-backed document and bounded code tasks. |
 | JSON / Markdown | Structured records for programs and readable exports for people. |
 
-Local-first describes where the project record lives. Model requests still use
+Project records are stored on your computer. Model requests still use
 the network through Codex. File pointers are not automatically read into a task.
 See [development](docs/development.md) for module boundaries and build commands.
 
 ## Install
 
-Download **Harness-Control-Terminal-v0.3.0-macos-arm64.zip** from
-[Releases](https://github.com/QiushanHuang/Harness-Control-Terminal/releases/tag/v0.3.0).
+Download **Workweft-v0.4.0-macos-arm64.zip** from
+[Releases](https://github.com/QiushanHuang/Workweft/releases/tag/v0.4.0).
 Extract it and open the app, or move it to Applications first.
 
 - Apple Silicon Mac. The bundle declares macOS 12+; validation used the maintainer's
@@ -183,8 +184,8 @@ network and usage terms apply.
 ## Build and develop
 
 ```sh
-git clone https://github.com/QiushanHuang/Harness-Control-Terminal.git
-cd Harness-Control-Terminal
+git clone https://github.com/QiushanHuang/Workweft.git
+cd Workweft
 cargo build --locked -p hct-core
 python3 apps/workbench/server.py
 ```
@@ -214,7 +215,7 @@ AI. Product feedback is especially useful when it describes where a project lose
 context, where a result becomes hard to find or what makes a task difficult to finish.
 
 Contributions: [development guide](docs/development.md) ·
-[issues](https://github.com/QiushanHuang/Harness-Control-Terminal/issues) ·
+[issues](https://github.com/QiushanHuang/Workweft/issues) ·
 [MIT license](LICENSE).
 
 Next: patch preview/application with recovery, richer source navigation and
@@ -229,25 +230,26 @@ restore drills. See [release notes](CHANGELOG.md) for what ships today.
 [![English](https://img.shields.io/badge/Language-English-24292f)](#english)
 [![简体中文](https://img.shields.io/badge/语言-简体中文-1677ff)](#中文)
 
-**让 AI 推进任务，让你始终掌握整个项目。**
+**把项目拆成任务，交给 AI 执行，由你检查成果、掌握进度。**
 
-Harness Control Terminal 是一个本地优先的 AI 项目工作台。你可以在这里拆解任务、
-安排先后顺序、发起执行、检查结果，再决定哪些成果值得保留和使用。
+Workweft 是一款运行在本地的 AI 项目管理工具。你可以拆解项目、安排任务顺序、
+让 AI 生成文档，并在任务旁查看结果、记录采用或拒绝的理由、确认完成。
+项目暂停后，也能看清已经做了什么、还有什么要做。
 
 它适合那些“一次对话做不完”的工作：方案要反复修改，几个任务互相依赖，项目中断
 几天后还要继续。重新打开时，你需要知道的是现在做到哪了、下一步做什么，而不是
 从聊天记录里重新拼出整个项目。
 
-### 为什么选 Harness
+### 为什么选 Workweft
 
 AI 可以很快再给你一个答案，但哪个答案符合现在的要求、哪份结果已经检查过，仍然
-需要有人理清。Harness 把任务、执行记录、成果和你的决定放在同一条工作线上。
+需要有人理清。Workweft 把任务、执行记录、成果和你的决定放在同一条工作线上。
 
 **这里的进展，是一项任务有了可用的结果，而不只是一次对话结束了。**
 你可以看清哪些任务能开始、哪些结果待检查、哪些工作已经确认完成。结果可以先保存，
 不必急着标记完成；旧版本也可以留下来参考，而不会混进当前任务的验收记录。
 
-| 日常工作中的麻烦 | Harness 的做法 | 实际收益 |
+| 日常工作中的麻烦 | Workweft 的做法 | 实际收益 |
 | --- | --- | --- |
 | 要求散在聊天里，做到一半才发现遗漏。 | 把完成条件直接写进任务。 | 开始前说清楚，检查时有依据。 |
 | 看板写着“完成”，却找不到对应的结果。 | 把执行记录和归档成果关联到任务。 | 从任务就能追到实际交付。 |
@@ -292,8 +294,8 @@ AI 可以很快再给你一个答案，但哪个答案符合现在的要求、�
 - **选择有理由：** 采用和拒绝都能留下说明，之后可以连同当时的检查清单一起搜索。
 - **记录带得走：** Markdown 方便阅读和交接，JSON 方便程序处理和后续集成。
 
-你仍然使用熟悉的编辑器、终端和文件管理器，Harness 负责把这些工作与项目对应起来。
-0.3.0 是简体中文界面的单用户 macOS 工作台，已支持文档生成；代码执行目前限定
+你仍然使用熟悉的编辑器、终端和文件管理器，Workweft 负责把这些工作与项目对应起来。
+0.4.0 是简体中文界面的单用户 macOS 工作台，已支持文档生成；代码执行目前限定
 已登记的工作台 Python 文件。与 MindDesk 通过主动导入、导出交换元数据，不做后台实时同步。
 
 ### 快速上手
@@ -358,14 +360,14 @@ AI 可以很快再给你一个答案，但哪个答案符合现在的要求、�
 | Codex CLI | 承担当前版本的文档生成和限定范围代码任务。 |
 | JSON / Markdown | 同一份项目记录，既便于程序处理，也方便人阅读和交接。 |
 
-“本地优先”指项目记录保存在自己的设备上，并不是模型离线运行。提交 AI 任务时，
+项目记录保存在自己的设备上，并不是模型离线运行。提交 AI 任务时，
 仍然通过 Codex 访问模型服务；登记的文件引用也不会自动变成模型输入。
 模块位置与构建方法见[开发说明](docs/development.md)。
 
 ### 安装与运行
 
-前往 [Releases](https://github.com/QiushanHuang/Harness-Control-Terminal/releases/tag/v0.3.0)
-下载 **Harness-Control-Terminal-v0.3.0-macos-arm64.zip**，解压后打开应用，
+前往 [Releases](https://github.com/QiushanHuang/Workweft/releases/tag/v0.4.0)
+下载 **Workweft-v0.4.0-macos-arm64.zip**，解压后打开应用，
 也可以先移到 Applications。
 
 - 当前安装包面向 Apple Silicon Mac，声明最低 macOS 12；尚未逐一验证所有系统版本。
@@ -380,8 +382,8 @@ AI 可以很快再给你一个答案，但哪个答案符合现在的要求、�
 源码运行：
 
 ```sh
-git clone https://github.com/QiushanHuang/Harness-Control-Terminal.git
-cd Harness-Control-Terminal
+git clone https://github.com/QiushanHuang/Workweft.git
+cd Workweft
 cargo build --locked -p hct-core
 python3 apps/workbench/server.py
 ```
@@ -407,7 +409,7 @@ python3 apps/workbench/server.py
 提出建议：你在哪一步容易丢失上下文，哪份结果最难找，或者什么事情总让任务迟迟无法完成。
 
 [开发说明](docs/development.md) · [版本记录](CHANGELOG.md) ·
-[问题反馈](https://github.com/QiushanHuang/Harness-Control-Terminal/issues) · [MIT 许可证](LICENSE)
+[问题反馈](https://github.com/QiushanHuang/Workweft/issues) · [MIT 许可证](LICENSE)
 
 后续重点是补丁预览与可恢复的应用、来源导航和恢复演练。
 

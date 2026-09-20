@@ -33,9 +33,9 @@ fn main() {
             if !ready {let _=child.kill();let _=child.wait();return Err("本地服务启动失败，请检查 Application Support/local.harness.control/service.log".into());}
             app.manage(Service(Mutex::new(Some(child))));
             tauri::WebviewWindowBuilder::new(app,"main",tauri::WebviewUrl::External(format!("http://127.0.0.1:{port}/").parse()?))
-                .title("Harness Control Terminal").inner_size(1280.0,850.0).min_inner_size(820.0,600.0).build()?;
+                .title("Workweft").inner_size(1280.0,850.0).min_inner_size(820.0,600.0).build()?;
             Ok(())
-        }).build(tauri::generate_context!()).expect("无法启动 Harness Control Terminal");
+        }).build(tauri::generate_context!()).expect("无法启动 Workweft");
     app.run(|app, event| {
         if let tauri::RunEvent::Exit = event {
             if let Some(service) = app.try_state::<Service>() {

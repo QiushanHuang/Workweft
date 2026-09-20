@@ -8,7 +8,7 @@ import argparse
 
 root = Path(__file__).resolve().parents[2]
 parser = argparse.ArgumentParser()
-parser.add_argument("--name", default="Harness Control Terminal.app")
+parser.add_argument("--name", default="Workweft.app")
 parser.add_argument("--profile", choices=("debug", "release"), default="release")
 args = parser.parse_args()
 if Path(args.name).name != args.name or not args.name.endswith(".app"):
@@ -24,8 +24,8 @@ workspace = resources / "workspace"
 macos.mkdir(parents=True)
 workspace.mkdir(parents=True)
 shutil.copy2(
-    root / f"apps/desktop/target/{args.profile}/harness-control-desktop",
-    macos / "harness-control-desktop",
+    root / f"apps/desktop/target-workweft/{args.profile}/workweft-desktop",
+    macos / "workweft-desktop",
 )
 ignore = shutil.ignore_patterns("__pycache__", "*.pyc", ".DS_Store")
 shutil.copytree(root / "apps/workbench", workspace / "apps/workbench", ignore=ignore)
@@ -36,13 +36,13 @@ shutil.copy2(root / "apps/desktop/icons/icon.icns", resources / "icon.icns")
 shutil.copy2(root / "LICENSE", resources / "LICENSE")
 shutil.copy2(root / "docs/THIRD-PARTY-NOTICES.txt", resources / "THIRD-PARTY-NOTICES.txt")
 info = {
-    "CFBundleExecutable": "harness-control-desktop",
+    "CFBundleExecutable": "workweft-desktop",
     "CFBundleIdentifier": "local.harness.control",
-    "CFBundleName": "Harness Control Terminal",
-    "CFBundleDisplayName": "Harness Control Terminal",
+    "CFBundleName": "Workweft",
+    "CFBundleDisplayName": "Workweft",
     "CFBundlePackageType": "APPL",
-    "CFBundleShortVersionString": "0.3.0",
-    "CFBundleVersion": "3",
+    "CFBundleShortVersionString": "0.4.0",
+    "CFBundleVersion": "4",
     "CFBundleIconFile": "icon.icns",
     "LSMinimumSystemVersion": "12.0",
     "NSHighResolutionCapable": True,

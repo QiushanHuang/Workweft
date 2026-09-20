@@ -4,7 +4,7 @@
 
 ## Installation
 
-The v0.3.0 downloadable app targets Apple Silicon macOS. It contains optimized
+The v0.4.0 downloadable app targets Apple Silicon macOS. It contains optimized
 Rust binaries and the Python workbench, but does not bundle Python or Codex CLI.
 
 1. Download the ZIP from this repository's Releases and extract it.
@@ -24,7 +24,7 @@ For a Python installed somewhere else, launch the executable with an explicit
 `HCT_PYTHON` environment variable, for example:
 
 ```sh
-HCT_PYTHON=/opt/homebrew/bin/python3 "/Applications/Harness Control Terminal 0.3.0.app/Contents/MacOS/harness-control-desktop"
+HCT_PYTHON=/opt/homebrew/bin/python3 "/Applications/Workweft.app/Contents/MacOS/workweft-desktop"
 ```
 
 ## Your first document task
@@ -68,12 +68,12 @@ The active runner/controller modules are excluded from agent editing.
 For an installed app, register a source checkout in the app-data `sources.json`:
 
 ```json
-{"workbench_root": "/absolute/path/to/Harness-Control-Terminal"}
+{"workbench_root": "/absolute/path/to/Workweft"}
 ```
 
 Use an actual existing checkout. Changing this setting does not move source files.
 Review the result patch and apply selected changes separately with your editor or
-Git tools. There is no automatic source-patch adoption in v0.3.0.
+Git tools. There is no automatic source-patch adoption in v0.4.0.
 
 ## Search and file references
 
@@ -87,6 +87,10 @@ Import creates a separate copy. Imported tasks retain criteria but not evidence
 or acceptance claims from the source project.
 
 ## Backup and upgrades
+
+Workweft retains the earlier `local.harness.control` data directory and bundle
+identifier so your existing projects remain available. This is a compatibility
+identifier, not the product name. Quit older app versions before opening Workweft.
 
 On macOS, application data is under:
 
@@ -107,7 +111,7 @@ window and stop any separately started browser server. Copy the entire data
 directory to a dated backup. JSON and Markdown exports do not contain every run
 input or artifact byte and are not a replacement for that copy.
 
-v0.3.0 uses schema 4. Before first opening an older database with this release,
+v0.4.0 uses schema 4. Before first opening an older database with this release,
 make the full backup described above; this public build does not automatically
 create that backup. Older binaries cannot open schema 4. To try a backup, use a
 separate copied data directory and set `HCT_DATABASE` to its `workbench.sqlite3`.
@@ -164,11 +168,14 @@ the saved job; it does not automatically resubmit it.
 
 ### 备份、升级与排错
 
+Workweft 保留原来的 `local.harness.control` 数据目录和应用标识，以继续读取已有项目。
+这是兼容旧版的内部标识，不是产品名称。使用新版前，请先退出旧版应用。
+
 完整备份：先结束或取消运行任务，退出所有应用窗口和自行启动的浏览器服务，再复制
 `~/Library/Application Support/local.harness.control/` 整个目录到带日期的备份位置。
 该目录含数据库、冻结产物、运行输入和日志。Markdown/JSON 导出用于阅读交接，不等于完整备份。
 
-0.3.0 使用 schema 4。升级前自行备份；公开版不会自动生成升级前备份，旧版程序也不能
+0.4.0 使用 schema 4。升级前自行备份；公开版不会自动生成升级前备份，旧版程序也不能
 读取新结构。恢复测试应在副本上使用 `HCT_DATABASE`，不要覆盖正在使用的数据。
 若启动失败，检查 `service.log`、Python 和 `sources.json` 中的路径。
 

@@ -88,7 +88,7 @@ class WorkbenchTest(unittest.TestCase):
                 self.assertEqual(rejected.exception.code, 403)
                 rejected.exception.close()
                 with urllib.request.urlopen(base + "/") as response:
-                    self.assertIn("Harness", response.read().decode())
+                    self.assertIn("Workweft", response.read().decode())
                 with urllib.request.urlopen(base + "/logo.png") as response:
                     self.assertTrue(response.read().startswith(b"\x89PNG"))
 

@@ -1,5 +1,20 @@
 # Releases
 
+## 0.4.0 · 2026-09-21
+
+Workweft · 织程 is the new product name.
+
+- New woven-W logo across the app, desktop icon and README.
+- Renamed application, repository and download package; clearer bilingual introduction.
+- Existing data directory, bundle identifier and export schemas remain compatible.
+- Project rules and execution scope are unchanged from 0.3.0.
+
+Workweft 是一款运行在本地的 AI 项目管理工具。新版统一产品名称与 W 形图标，
+保留原数据目录和导入格式，已有项目无需搬迁。安装包仍为 Apple Silicon 构建，
+使用本地签名，尚未经过 Apple 公证。
+
+See [the user guide](docs/guide.md) for installation and backup instructions.
+
 ## 0.3.0 · 2026-09-21
 
 First public early-access release for Apple Silicon macOS.
